@@ -1,0 +1,42 @@
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AlpineJS</title>
+
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+  </head>
+
+  <body>
+    <div x-data="data()">
+      <ul>
+        <template x-for="product in Object.values(products)">
+          <li>
+            <span x-text="product.stock"></span> -
+            <span x-text="product.name"></span>
+            <template x-if="product.stock == 0">
+              <p>Sin inventario</p>
+            </template>
+          </li>
+        </template>
+      </ul>
+    </div>
+
+    <script>
+      function data() {
+        return {
+          products: {
+            0: { id: 0, name: "Pantalón", stock: 5 },
+            1: { id: 1, name: "Casaca", stock: 8 },
+            2: { id: 2, name: "Camisa", stock: 3 },
+            3: { id: 3, name: "Zapatillas", stock: 0 },
+          },
+        };
+      }
+    </script>
+  </body>
+</html>

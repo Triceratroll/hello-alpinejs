@@ -1,0 +1,45 @@
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AlpineJS</title>
+
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+  </head>
+
+  <body>
+    <div x-data="data()" x-init="start()">
+      <button :disabled="open" @click="isOpen()">Menu</button>
+
+      <nav x-show="open" @click.away="close()">
+        <ul>
+          <li>Item 1</li>
+          <li>Item 2</li>
+          <li>Item 3</li>
+          <li>Item 4</li>
+        </ul>
+      </nav>
+    </div>
+  </body>
+
+  <script>
+    function data() {
+      return {
+        open: null,
+        start() {
+          this.open = false;
+        },
+        isOpen() {
+          this.open = !this.open;
+        },
+        close() {
+          this.open = false;
+        },
+      };
+    }
+  </script>
+</html>

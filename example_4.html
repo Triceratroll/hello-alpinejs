@@ -1,0 +1,23 @@
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AlpineJS</title>
+
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+  </head>
+
+  <body>
+    <!-- Esto no funciona muy bien, solo al inicio de la pantalla, debe a ver una mejor forma de hacerlo -->
+    <div
+      x-data="{ open: true }"
+      x-on:resize.window="open = window.outerWidth > 768 ? true : false"
+    >
+      <p x-show="open">Este mensaje solo se mostrará en una pantalla grande</p>
+    </div>
+  </body>
+</html>
